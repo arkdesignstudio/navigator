@@ -6,7 +6,7 @@ import { DiscoverPage } from '../pages/discover/discover';
 import { BuildsPage } from '../pages/builds/builds';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { Questions } from '../providers/questions';
+import { Question } from '../providers/question';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,6 @@ import { Questions } from '../providers/questions';
     BuildsPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Questions]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Question]
 })
 export class AppModule {}

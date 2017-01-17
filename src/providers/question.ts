@@ -30,10 +30,10 @@ export class Option {
 }
 
 @Injectable()
-export class Questions {
+export class Question {
 
   public text: string;
-  public options: Option[];
+  public options: Option[] = [];
   public choices: Option[] = [];
 
   private state: State; 
@@ -56,7 +56,10 @@ export class Questions {
   public incrementState(option) {
 
     // Push option into choices stack
-    this.choices.push(option);
+    if (option.title != "Maps" && option.title != "Cargo") {
+      this.choices.push(option);
+    }
+    
 
     switch(this.state) {
       case State.Init: {

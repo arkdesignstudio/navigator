@@ -13,11 +13,11 @@
 
   <ion-card class="title-card">
     <ion-card-header>
-      {{ questions.text }}
+      {{ question.text }}
     </ion-card-header>
   </ion-card>
 
-  <ion-card class="option-card" *ngFor="let option of questions.options" (click)="nextQuestion(option)">
+  <ion-card class="option-card" *ngFor="let option of question.options" (click)="nextQuestion(option)">
     <ion-card-header>
       {{ option.title }}
     </ion-card-header>

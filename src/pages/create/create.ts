@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Option, Questions } from '../../providers/questions'
+import { Option, Question } from '../../providers/question'
 /*
   Generated class for the Create page.
 
@@ -13,10 +13,10 @@ import { Option, Questions } from '../../providers/questions'
 })
 export class CreatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private questions: Questions) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private question: Question) {
   }
 
   nextQuestion(option) {
-    this.questions.incrementState(option);
+    this.question.incrementState(option);
   }
 }
