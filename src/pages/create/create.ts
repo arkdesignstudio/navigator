@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Option, Question } from '../../providers/question'
+import { Question } from '../../providers/question'
 /*
   Generated class for the Create page.
 
