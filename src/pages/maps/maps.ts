@@ -15,8 +15,6 @@ export class MapsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapsPage');
-  }
+  
 
 }
