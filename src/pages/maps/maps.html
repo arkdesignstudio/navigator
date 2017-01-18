@@ -7,13 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Tutorials</ion-title>
+    <ion-title>Platform</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card *ngFor="let platform of platforms.list" (click)="showTutorials(platform)">
+    <ion-item>
+      <div class="center-icon">
+        <div>
+          <ion-icon name="{{ platform.icon }}" class="tutorial-icon"></ion-icon>
+        </div>
+      </div>
+      <div class="center-icon">
+         <h2>{{ platform.name }}</h2>
+      </div>
+      <p></p>
+    </ion-item>
+  </ion-card>
+
+<!--   <ion-card class="option-card" *ngFor="let option of question.options" (click)="nextQuestion(option)">
+    <ion-card-header>
+      {{ option.title }}
+    </ion-card-header>
+    <ion-card-content>
+    {{ option.subtitle }}
+    </ion-card-content>
+  </ion-card> -->
+
+  <!-- <ion-card>
+    <ion-item>
+      <div class="center-icon">
+        <div>
+          <ion-icon name="ios-globe-outline" class="tutorial-icon"></ion-icon>
+        </div>
+      </div>
+      <div class="center-icon">
+         <h2>Web</h2>
+      </div>
+      <p></p>
+    </ion-item>
+  </ion-card>
 
   <ion-card>
     <ion-item>
@@ -24,7 +61,7 @@
       </div>
         <div class="center-icon">
           <div>
-            <h2>Apple</h2>
+            <h2>iOS</h2>
           </div>
         </div>
     </ion-item>
@@ -42,20 +79,6 @@
       </div>
       <p></p>
     </ion-item>
-  </ion-card>
-
-  <ion-card>
-    <ion-item>
-      <div class="center-icon">
-        <div>
-          <ion-icon name="ios-globe-outline" class="tutorial-icon"></ion-icon>
-        </div>
-      </div>
-      <div class="center-icon">
-         <h2>Web</h2>
-      </div>
-      <p></p>
-    </ion-item>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
