@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Question } from '../../providers/question'
+
+import { MapsPage } from '../maps/maps';
 /*
   Generated class for the Create page.
 
@@ -17,6 +19,10 @@ export class CreatePage {
   }
 
   nextQuestion(option) {
-    this.question.incrementState(option);
+
+    var req = this.question.incrementState(option);
+    if (req == "Maps") {
+      this.navCtrl.push(MapsPage);
+    }
   }
 }

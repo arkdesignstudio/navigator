@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Setup } from './setup';
 
+import { BuildsPage } from '../pages/builds/builds';
+
 /*
   Generated class for the Questions provider.
 
@@ -98,7 +100,8 @@ export class Question {
           }
 
           default: {
-            break;
+            return option.title;
+            //break;
           }
         }
 
