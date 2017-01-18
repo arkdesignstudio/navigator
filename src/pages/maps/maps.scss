@@ -1,12 +1,17 @@
 page-maps {
 
-  .center-icon {
+  ion-card {
+    height: 25%;
+  }
 
+  .center-icon {
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
 
   .tutorial-icon {
     font-size: 3.0em;
-
   }
 
 }
