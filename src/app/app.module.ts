@@ -5,12 +5,11 @@ import { CreatePage } from '../pages/create/create';
 import { DiscoverPage } from '../pages/discover/discover';
 import { BuildsPage } from '../pages/builds/builds';
 import { MapsPage } from '../pages/maps/maps';
-import { TutorialsPage } from '../pages/tutorials/tutorials';
+
+import { TutorialsPage, TutorialDetailsPage } from '../pages/tutorials/tutorials';
 
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { Question } from '../providers/question';
-import { Platforms } from '../providers/platforms';
 import { Tutorials } from '../providers/tutorials';
 
 @NgModule({
@@ -21,6 +20,7 @@ import { Tutorials } from '../providers/tutorials';
     BuildsPage,
     MapsPage,
     TutorialsPage,
+    TutorialDetailsPage,
     TabsPage
   ],
   imports: [
@@ -34,12 +34,12 @@ import { Tutorials } from '../providers/tutorials';
     BuildsPage,
     MapsPage,
     TutorialsPage,
+    TutorialDetailsPage,
     TabsPage
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler}, 
   Question,
-  Platforms,
   Tutorials
   ]
 })
