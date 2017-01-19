@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController, ViewController, NavController, NavParams, Platform } from 'ionic-angular';
+
+import { TutorialPage } from '../tutorial/tutorial';
+
 import { Tutorials } from '../../providers/tutorials';
 
 
@@ -44,17 +47,96 @@ export class TutorialsPage {
     this.platform = this.navParams.data.platform;
     this.tutorials = new Tutorials;
     this.tutorials.addTutorial(
-        [
-          "Web",
-          "Android",
-        ], 
-        {
-          'title': 'Angular',
-          'icon': 'logo-angular',
-          'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
-          'color': '#E63135',
-        }
+      [
+        "Web",
+      ], 
+      {
+        'title': 'Angular.js',
+        'icon': 'logo-angular',
+        'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
+        'color': '#E63135',
+      }
     );
+    this.tutorials.addTutorial(
+      [
+        "Web",
+      ],
+      {
+        'title': 'React',
+        'icon': 'ios-snow',
+        'description': 'React (sometimes styled React.js or ReactJS) is an open-source JavaScript library providing a view for data rendered as HTML. React views are typically rendered using components that contain additional components specified as custom HTML tags.',
+        'color': '#60d9fa',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "iOS",
+      ],
+      {
+        'title': 'Swift',
+        'icon': 'ios-appstore',
+        'description': 'Swift is a general-purpose programming language built using a modern approach to safety, performance, and software design patterns. Swift is open source, and maintained by Apple.',
+        'color': '#FF6600',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "Android",
+      ],
+      {
+        'title': 'Android SDK',
+        'icon': 'logo-android',
+        'description': 'A software development kit that enables developers to create applications for the Android platform. The Android SDK includes sample projects with source code, development tools, an emulator, and required libraries to build Android applications.',
+        'color': '#a4c639',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "iOS",
+        "Android",
+      ],
+      {
+        'title': 'Ionic 2',
+        'icon': 'ios-ionic',
+        'description': 'Ionic 2 is the next generation of Ionic, the open-source mobile app development SDK that makes it easy to build top quality native and progressive web apps with web technologies. Ionic 2 is based on the new 2.x version of Angular, and comes with many significant performance, usability, and feature improvements.',
+        'color': '#2196F3',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "iOS",
+        "Android",
+      ],
+      {
+        'title': 'React-Native',
+        'icon': 'ios-snow',
+        'description': 'React Native enables you to build world-class application experiences on native platforms using a consistent developer experience based on JavaScript and React. The focus of React Native is on developer efficiency across all the platforms you care about - learn once, write anywhere.',
+        'color': '#60d9fa',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "Language",
+      ],
+      {
+        'title': 'Git',
+        'icon': 'ios-git-branch',
+        'description': 'Git (/ɡɪt/) is a version control system (VCS) for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for software development, but it can be used to keep track of changes in any files.',
+        'color': '#fc6d26',
+      }
+    );
+    this.tutorials.addTutorial(
+      [
+        "Language",
+      ],
+      {
+        'title': 'JavaScript',
+        'icon': 'logo-javascript',
+        'description': 'One of the most popular programming languages on the Web!',
+        'color': '#FFD439',
+      }
+    );
+
     this.items = this.tutorials.getTutorials(this.platform);
     // this.items = [
     //   {
@@ -115,61 +197,8 @@ export class TutorialsPage {
   }
 
   openModal(item) {
-    let modal = this.modalCtrl.create(TutorialDetailsPage,{item: item});
+    let modal = this.modalCtrl.create(TutorialPage,{item: item});
     modal.present();
   }
 
-}
-
-@Component({
-  selector: 'page-tutorials',
-  template:`
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Description
-    </ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content padding>
-  <ion-slides pager>
-    <ion-slide>
-      <div class='big-icon'>
-        <ion-icon [name]="item.icon" [ngStyle]="{'color': item.color}">
-        </ion-icon>
-      </div>
-      <h2>{{item.title}}</h2>
-      <p>{{item.description}}</p>
-      <button ion-button outline>Begin Tutorial</button>
-
-    </ion-slide>
-  </ion-slides>
-    
-</ion-content>
-
-`
-})
-export class TutorialDetailsPage {
-  item;
-
-  constructor(
-    public platform: Platform,
-    public params: NavParams,
-    public viewCtrl: ViewController
-  ) {
-      this.item = this.params.data.item; 
-    }
-
-  dismiss() {
-    this.viewCtrl.dismiss();
-
-  }
 }

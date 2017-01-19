@@ -6,11 +6,13 @@ import { DiscoverPage } from '../pages/discover/discover';
 import { BuildsPage } from '../pages/builds/builds';
 import { MapsPage } from '../pages/maps/maps';
 
-import { TutorialsPage, TutorialDetailsPage } from '../pages/tutorials/tutorials';
+import { TutorialsPage } from '../pages/tutorials/tutorials';
+import { TutorialPage } from '../pages/tutorial/tutorial';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { Question } from '../providers/question';
 import { Tutorials } from '../providers/tutorials';
+import { Tutorial } from '../providers/tutorial';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { Tutorials } from '../providers/tutorials';
     BuildsPage,
     MapsPage,
     TutorialsPage,
-    TutorialDetailsPage,
+    TutorialPage,
     TabsPage
   ],
   imports: [
@@ -34,13 +36,14 @@ import { Tutorials } from '../providers/tutorials';
     BuildsPage,
     MapsPage,
     TutorialsPage,
-    TutorialDetailsPage,
+    TutorialPage,
     TabsPage
   ],
   providers: [
   {provide: ErrorHandler, useClass: IonicErrorHandler}, 
   Question,
-  Tutorials
+  Tutorials,
+  Tutorial,
   ]
 })
 export class AppModule {}
