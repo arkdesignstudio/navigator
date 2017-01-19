@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, ViewController, NavController, NavParams, Platform } from 'ionic-angular';
-
+import { Tutorials } from '../../providers/tutorials';
 
 
 /*
@@ -37,66 +37,81 @@ import { ModalController, ViewController, NavController, NavParams, Platform } f
 })
 export class TutorialsPage {
   private platform: string;
-  private items;
+  private tutorials : Tutorials;
+  public items;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.platform = this.navParams.data.platform;
-    this.items = [
-      {
-        'title': 'Angular',
-        'icon': 'logo-angular',
-        'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
-        'color': '#E63135'
-      },
-      {
-        'title': 'CSS3',
-        'icon': 'logo-css3',
-        'description': 'The latest version of cascading stylesheets - the styling language of the web!',
-        'color': '#0CA9EA'
-      },
-      {
-        'title': 'HTML5',
-        'icon': 'logo-html5',
-        'description': 'The latest version of the web\'s markup language.',
-        'color': '#F46529'
-      },
-      {
-        'title': 'JavaScript',
-        'icon': 'logo-javascript',
-        'description': 'One of the most popular programming languages on the Web!',
-        'color': '#FFD439'
-      },
-      {
-        'title': 'Sass',
-        'icon': 'logo-sass',
-        'description': 'Syntactically Awesome Stylesheets - a mature, stable, and powerful professional grade CSS extension.',
-        'color': '#CE6296'
-      },
-      {
-        'title': 'NodeJS',
-        'icon': 'logo-nodejs',
-        'description': 'An open-source, cross-platform runtime environment for developing server-side Web applications.',
-        'color': '#78BD43'
-      },
-      {
-        'title': 'Python',
-        'icon': 'logo-python',
-        'description': 'A clear and powerful object-oriented programming language!',
-        'color': '#3575AC'
-      },
-      {
-        'title': 'Ionic',
-        'icon': 'ios-ionic',
-        'description': '',
-        'color': '#2196F3'
-      },
-      {
-        'title': 'LAMP',
-        'icon': 'logo-tux',
-        'description': '',
-        'color': '#000'
-      },
-    ]
+    this.tutorials = new Tutorials;
+    this.tutorials.addTutorial(
+        [
+          "Web",
+          "Android",
+        ], 
+        {
+          'title': 'Angular',
+          'icon': 'logo-angular',
+          'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
+          'color': '#E63135',
+        }
+    );
+    this.items = this.tutorials.getTutorials(this.platform);
+    // this.items = [
+    //   {
+    //     'title': 'Angular',
+    //     'icon': 'logo-angular',
+    //     'description': 'A powerful Javascript framework for building single page apps. Angular is open source, and maintained by Google.',
+    //     'color': '#E63135'
+    //   },
+    //   {
+    //     'title': 'CSS3',
+    //     'icon': 'logo-css3',
+    //     'description': 'The latest version of cascading stylesheets - the styling language of the web!',
+    //     'color': '#0CA9EA'
+    //   },
+    //   {
+    //     'title': 'HTML5',
+    //     'icon': 'logo-html5',
+    //     'description': 'The latest version of the web\'s markup language.',
+    //     'color': '#F46529'
+    //   },
+    //   {
+    //     'title': 'JavaScript',
+    //     'icon': 'logo-javascript',
+    //     'description': 'One of the most popular programming languages on the Web!',
+    //     'color': '#FFD439'
+    //   },
+    //   {
+    //     'title': 'Sass',
+    //     'icon': 'logo-sass',
+    //     'description': 'Syntactically Awesome Stylesheets - a mature, stable, and powerful professional grade CSS extension.',
+    //     'color': '#CE6296'
+    //   },
+    //   {
+    //     'title': 'NodeJS',
+    //     'icon': 'logo-nodejs',
+    //     'description': 'An open-source, cross-platform runtime environment for developing server-side Web applications.',
+    //     'color': '#78BD43'
+    //   },
+    //   {
+    //     'title': 'Python',
+    //     'icon': 'logo-python',
+    //     'description': 'A clear and powerful object-oriented programming language!',
+    //     'color': '#3575AC'
+    //   },
+    //   {
+    //     'title': 'Ionic',
+    //     'icon': 'ios-ionic',
+    //     'description': '',
+    //     'color': '#2196F3'
+    //   },
+    //   {
+    //     'title': 'LAMP',
+    //     'icon': 'logo-tux',
+    //     'description': '',
+    //     'color': '#000'
+    //   },
+    // ]
   }
 
   openModal(item) {
